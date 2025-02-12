@@ -1,0 +1,3 @@
+com\sistemapag\service\IPagamentoService.class
+com\sistemapag\service\PagamentoServer.class
+com\sistemapag\service\PagamentoServiceImpl.class

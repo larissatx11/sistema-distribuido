@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ServidorPedidosApplication<servidor-pedidos>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.meusistema.pedidos.ServidorPedidosApplication",
+            "projectName": "servidor-pedidos",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

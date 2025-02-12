@@ -1,0 +1,33 @@
+services:
+  servidor_pagamentos:
+    build: ./servidor_pagamentos
+    ports:
+      - "1099:1099"
+
+  servidor_pedidos:
+    build: ./servidor_pedidos
+    depends_on:
+      - servidor_pagamentos
+    ports:
+      - "8081:8081"
+    environment:
+      - PAGAMENTO_SERVICE_HOST=servidor_pagamentos
+    volumes:
+      - shared_libs:/libs
+
+  postgres:
+    image: postgres:latest
+    container_name: pedidos_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: pedidos
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  
+volumes:
+  shared_libs:
+  postgres_data:

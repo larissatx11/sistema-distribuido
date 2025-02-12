@@ -1,0 +1,16 @@
+# Dockerfile do servidor-pedidos
+FROM openjdk:17
+
+WORKDIR /app
+
+# Copiar o arquivo JAR do servidor-pedidos
+COPY target/servidor-pedidos-0.0.1-SNAPSHOT.jar servidor-pedidos.jar
+
+# Copiar o arquivo JAR do servidor-pagamentos
+#COPY libs/pagamentos-1.0-SNAPSHOT.jar pagamentos.jar
+
+# Expor a porta do Spring Boot
+EXPOSE 8081
+
+# Comando para rodar o servidor com ambos os JARs no classpath
+ENTRYPOINT ["java", "-jar", "servidor-pedidos.jar"]
