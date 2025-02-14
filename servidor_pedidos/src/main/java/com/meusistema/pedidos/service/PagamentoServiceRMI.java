@@ -29,7 +29,7 @@ public class PagamentoServiceRMI {
         }
     }
 
-    public boolean processarPagamento(Long pedidoId, double valor) {
+    public boolean processarPagamento(int pedidoId, double valor) {
         try {
             boolean resposta = pagamentoService.processarPagamento(pedidoId, valor);
             return resposta;
@@ -38,5 +38,4 @@ public class PagamentoServiceRMI {
             return false;
         }
     }
-
 }

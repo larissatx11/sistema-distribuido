@@ -12,7 +12,7 @@ public class PagamentoServiceImpl extends UnicastRemoteObject implements IPagame
     }
 
     @Override
-    public boolean processarPagamento(Long pedidoId, double valor) throws RemoteException {
+    public boolean processarPagamento(int pedidoId, double valor) throws RemoteException {
         // Simula aprovação ou rejeição do pagamento
         boolean aprovado = new Random().nextBoolean();
         return aprovado;

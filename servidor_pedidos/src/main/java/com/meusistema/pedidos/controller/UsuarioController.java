@@ -29,13 +29,14 @@ public class UsuarioController {
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody Usuario usuario) {
         Optional<Usuario> usuarioEncontrado = usuarioRepository.findByUsuario(usuario.getUsuario());
-
+    
         if (usuarioEncontrado.isPresent() && usuarioEncontrado.get().getSenha().equals(usuario.getSenha())) {
-            return ResponseEntity.ok("Login bem-sucedido!");
+            // Retorna um "token" simples (pode ser qualquer string fixa por enquanto)
+            return ResponseEntity.ok("{\"token\": \"meu-token-de-teste\"}");
         } else {
             return ResponseEntity.status(401).body("Credenciais inválidas!");
         }
-    }
+    }    
 
     @PutMapping("/editar/{usuario}")
     public ResponseEntity<String> editar(@PathVariable String usuario, @RequestBody Usuario novosDados) {

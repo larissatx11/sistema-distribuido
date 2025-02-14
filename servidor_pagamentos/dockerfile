@@ -1,5 +1,5 @@
 # Usar a imagem oficial do OpenJDK 20
-FROM openjdk:20
+FROM openjdk:17
 
 # Criar um diretório para o app
 WORKDIR /app

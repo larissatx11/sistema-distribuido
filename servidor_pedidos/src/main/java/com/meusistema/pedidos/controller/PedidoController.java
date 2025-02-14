@@ -18,7 +18,7 @@ public class PedidoController {
         this.pagamentoServiceRMI = pagamentoServiceRMI;
     }
 
-    @PostMapping
+    @PostMapping("/criarPedido")
     public ResponseEntity<String> criarPedido(@RequestBody Pedido pedido) {
         try {
             // Chama o serviço de pagamento antes de salvar o pedido

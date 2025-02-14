@@ -18,7 +18,7 @@ public class PagamentoController {
     }
 
     @PostMapping("/processar")
-    public boolean processarPagamento(@RequestParam Long pedidoId, @RequestParam double valor) {
+    public boolean processarPagamento(@RequestParam int pedidoId, @RequestParam double valor) {
         return pagamentoService.processarPagamento(pedidoId, valor);
     }
 }

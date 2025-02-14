@@ -7,7 +7,7 @@ WORKDIR /app
 COPY target/servidor-pedidos-0.0.1-SNAPSHOT.jar servidor-pedidos.jar
 
 # Copiar o arquivo JAR do servidor-pagamentos
-#COPY libs/pagamentos-1.0-SNAPSHOT.jar pagamentos.jar
+COPY libs/pagamentos-1.0-SNAPSHOT.jar pagamentos.jar
 
 # Expor a porta do Spring Boot
 EXPOSE 8081

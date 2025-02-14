@@ -3,58 +3,43 @@ package com.meusistema.pedidos.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "pedido") // Nome da tabela no PostgreSQL
+@Table(name = "pedidos")
 public class Pedido {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String cliente;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Gera automaticamente o ID
+    private int id;
+
+    private int id_produto;  // Este campo será fornecido pelo usuário
     private String produto;
-    private int quantidade;
     private String status;
     private double valor;
 
-    public double getValor() {
-        return valor;
-    }
+    // Construtores
+    public Pedido() {}
 
-    public void setValor(double valor) {
+    public Pedido(int id_produto, String produto, String status, double valor) {
+        this.id_produto = id_produto;
+        this.produto = produto;
+        this.status = status;
         this.valor = valor;
     }
 
-    public String getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
-    }
-
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    // Construtor vazio obrigatório pelo JPA
-    public Pedido() {}
-
-    public Pedido(String produto, int quantidade) {
-        this.produto = produto;
-        this.quantidade = quantidade;
-    }
-
     // Getters e Setters
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
+    }
+
+    public int getId_produto() {
+        return id_produto;
+    }
+
+    public void setId_produto(int id_produto) {
+        this.id_produto = id_produto;
     }
 
     public String getProduto() {
@@ -65,16 +50,19 @@ public class Pedido {
         this.produto = produto;
     }
 
-    public int getQuantidade() {
-        return quantidade;
+    public String getStatus() {
+        return status;
     }
 
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return "Pedido{id=" + id + ", produto='" + produto + "', quantidade=" + quantidade + "}";
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 }
